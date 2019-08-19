@@ -4,21 +4,25 @@ import android.animation.LayoutTransition;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<String> imgUrls = new ArrayList<>();
+    private List<String> thumbnailUrls = new ArrayList<>();
     private Context context;
 
 
-    public RecyclerViewAdapter(Context context,List<String> imgUrls) {
-        this.imgUrls=imgUrls;
+    public RecyclerViewAdapter(Context context,List<String> thumbnailUrls) {
+        this.thumbnailUrls=thumbnailUrls;
         this.context=context;
     }
 
@@ -27,9 +31,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.recycler_view_item,viewGroup,false);
 
-        myViewHolder viewHolder = new myViewHolder(viewGroup);
-
-//        viewHolder.ivThumbnail.setBackgroundColor();
 
         return new myViewHolder(view);
     }
@@ -37,11 +38,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
 
+        myViewHolder myViewHolder = (RecyclerViewAdapter.myViewHolder)viewHolder;
+
+        Glide.with(context).load(thumbnailUrls.get(i)).transition(DrawableTransitionOptions.withCrossFade()).into(myViewHolder.ivThumbnail);
+
     }
 
     @Override
     public int getItemCount() {
-        return imgUrls.size();
+        return thumbnailUrls.size();
     }
 
 

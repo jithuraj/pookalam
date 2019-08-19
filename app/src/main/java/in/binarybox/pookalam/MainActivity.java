@@ -13,6 +13,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,8 +23,10 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter adapter;
-    private List<String> imgUrls= new ArrayList<>();
+    private List<String> thumbnailUrls= new ArrayList<>();
+    private List<String> thumbnailNames= new ArrayList<>();
     private String URL_DATA = "https://binarybox.in/apps/pookalam/php/get_data.php";
+    private String THUMBNAIL_PATH ="https://binarybox.in/apps/pookalam/photos/thumbnails/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.recyclerView);
 
-        adapter = new RecyclerViewAdapter(this,imgUrls);
+        adapter = new RecyclerViewAdapter(getApplicationContext(),thumbnailUrls);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-
-        imgUrls.add("hai");
-        imgUrls.add("hai");
-        imgUrls.add("hai");
-        imgUrls.add("hai");
-        imgUrls.add("hai");
-        imgUrls.add("hai");
-        imgUrls.add("hai");
-        imgUrls.add("hai");
 
         getDataFromServerFn();
 
@@ -55,11 +49,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 try {
-                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray jsonArray = new JSONArray(response);
+                    
+                    for (int i=0;i<jsonArray.length();i++){
+                        thumbnailNames.add(jsonArray.getString(i));
+                    }
 
-                    Toast.makeText(MainActivity.this, "total_photos = "+jsonObject.getInt("total_photos"), Toast.LENGTH_SHORT).show();
+                    thumbnailNameToUrlFn();
 
-                    adapter.notifyDataSetChanged();
+
 
                 } catch (JSONException e) {
 
@@ -78,5 +76,14 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
+    }
+
+    private void thumbnailNameToUrlFn() {
+
+        for (String item : thumbnailNames){
+            thumbnailUrls.add(THUMBNAIL_PATH+item);
+        }
+
+        adapter.notifyDataSetChanged();
     }
 }
