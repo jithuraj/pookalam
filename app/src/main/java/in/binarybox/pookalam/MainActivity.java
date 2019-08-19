@@ -22,6 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
             thumbnailUrls.add(THUMBNAIL_PATH+item);
         }
 
+        Collections.shuffle(thumbnailUrls);
         adapter.notifyDataSetChanged();
     }
 
