@@ -1,5 +1,6 @@
 package in.binarybox.pookalam;
 
+import android.Manifest;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +17,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,6 +57,33 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         getDataFromServerFn();
+
+        Dexter.withActivity(this)
+                .withPermissions(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(new MultiplePermissionsListener() {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+                        if (report.areAllPermissionsGranted()) {
+                            //permission granted
+
+                        } else {
+                            //permission denied
+                        }
+
+                        if (report.isAnyPermissionPermanentlyDenied()) {
+                            //permanent permission denial
+                        }
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                })
+                .onSameThread()
+                .check();
 
     }
 
@@ -98,6 +131,10 @@ public class MainActivity extends AppCompatActivity {
         Collections.shuffle(thumbnailUrls);
         adapter.notifyDataSetChanged();
     }
+
+
+
+    //todo don't forget to add privacy policy in playstore
 
 
 }

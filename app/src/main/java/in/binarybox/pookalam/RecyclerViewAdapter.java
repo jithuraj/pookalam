@@ -16,6 +16,8 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+import in.binarybox.pookalam.photo.ViewPagerActivity;
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<String> thumbnailUrls = new ArrayList<>();
     private Activity activity;
@@ -49,8 +51,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         myViewHolder.ivThumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(activity, PhotoViewerActivity.class);
-                intent.putExtra("thumbnailUrl",thumbnailUrls.get(i));
+                Intent intent=new Intent(activity, ViewPagerActivity.class);
+//                intent.putExtra("thumbnailUrl",thumbnailUrls.get(i));
+
+                intent.putStringArrayListExtra("thumbnailUrls", (ArrayList<String>) thumbnailUrls);
+                intent.putExtra("position",i);
+
                 activity.startActivity(intent);
             }
         });

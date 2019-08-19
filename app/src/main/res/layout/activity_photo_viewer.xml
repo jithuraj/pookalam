@@ -1,28 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000"
-    tools:context=".PhotoViewerActivity">
+    tools:context="in.binarybox.pookalam.photo.ViewPagerActivity">
 
-    <ProgressBar
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.github.chrisbanes.photoview.PhotoView
-        android:id="@+id/ivPhoto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+
+    <ImageView
+        android:id="@+id/btnShare"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/icon_share"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
-</android.support.constraint.ConstraintLayout>
+        app:layout_constraintEnd_toStartOf="@+id/btnDownload"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/btnShare"
+        app:layout_constraintEnd_toEndOf="@+id/btnShare"
+        app:layout_constraintStart_toStartOf="@+id/btnShare"
+        app:layout_constraintTop_toTopOf="@+id/btnShare" />
+
+    <ImageView
+        android:id="@+id/btnDownload"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/icon_download"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnWhatsapp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnShare" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDownload"
+        app:layout_constraintEnd_toEndOf="@+id/btnDownload"
+        app:layout_constraintStart_toStartOf="@+id/btnDownload"
+        app:layout_constraintTop_toTopOf="@+id/btnDownload" />
+
+    <ImageView
+        android:id="@+id/btnWhatsapp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/icon_whatsapp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnDownload" />
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/btnWhatsapp"
+        app:layout_constraintEnd_toEndOf="@+id/btnWhatsapp"
+        app:layout_constraintStart_toStartOf="@+id/btnWhatsapp"
+        app:layout_constraintTop_toTopOf="@+id/btnWhatsapp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
