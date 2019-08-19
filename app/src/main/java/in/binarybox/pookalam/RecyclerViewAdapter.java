@@ -19,11 +19,13 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<String> thumbnailUrls = new ArrayList<>();
     private Context context;
+    private int width;
 
 
-    public RecyclerViewAdapter(Context context,List<String> thumbnailUrls) {
+    public RecyclerViewAdapter(Context context,List<String> thumbnailUrls,int width) {
         this.thumbnailUrls=thumbnailUrls;
         this.context=context;
+        this.width=width;
     }
 
     @NonNull
@@ -40,6 +42,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         myViewHolder myViewHolder = (RecyclerViewAdapter.myViewHolder)viewHolder;
 
+        myViewHolder.ivThumbnail.getLayoutParams().height=(width/2);
+
         Glide.with(context).load(thumbnailUrls.get(i)).transition(DrawableTransitionOptions.withCrossFade()).into(myViewHolder.ivThumbnail);
 
     }
@@ -55,6 +59,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             ivThumbnail=itemView.findViewById(R.id.ivThumbnail);
+            ivThumbnail.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
     }
 

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private List<String> thumbnailNames= new ArrayList<>();
     private String URL_DATA = "https://binarybox.in/apps/pookalam/php/get_data.php";
     private String THUMBNAIL_PATH ="https://binarybox.in/apps/pookalam/photos/thumbnails/";
+    private int width;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.recyclerView);
 
-        adapter = new RecyclerViewAdapter(getApplicationContext(),thumbnailUrls);
+        //get device screen width
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        width = displayMetrics.widthPixels;
+
+        adapter = new RecyclerViewAdapter(getApplicationContext(),thumbnailUrls,width);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
