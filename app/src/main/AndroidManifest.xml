@@ -3,8 +3,8 @@
     package="in.binarybox.pookalam">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".photo.ViewPagerActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".PhotosActivity"></activity>
+        <activity android:name=".photo.PhotosViewPagerActivity" />
+        <activity android:name=".menu.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +35,10 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8854035386065547~6694282359" />
+            android:value="ca-app-pub-8854035386065547~7489719466" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package in.binarybox.pookalam;
 
 import android.Manifest;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,7 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -31,7 +35,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class PhotosActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter adapter;
     private List<String> thumbnailUrls= new ArrayList<>();
@@ -105,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
                 } catch (JSONException e) {
 
-                    Toast.makeText(MainActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    showInternetConnecttionErrorFn();
 
                     e.printStackTrace();
                 }
@@ -113,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this, ""+error.getMessage(), Toast.LENGTH_SHORT).show();
+                showInternetConnecttionErrorFn();
             }
         });
 
@@ -128,8 +132,22 @@ public class MainActivity extends AppCompatActivity {
             thumbnailUrls.add(THUMBNAIL_PATH+item);
         }
 
+        recyclerView.setVisibility(View.VISIBLE);
         Collections.shuffle(thumbnailUrls);
         adapter.notifyDataSetChanged();
+    }
+
+    private void showInternetConnecttionErrorFn() {
+       TextView btnRetry =  findViewById(R.id.btnRetry);
+       ConstraintLayout noInternetConnectionLayout =  findViewById(R.id.noInternetConnectionLayout);
+        noInternetConnectionLayout.setVisibility(View.VISIBLE);
+        btnRetry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
     }
 
 

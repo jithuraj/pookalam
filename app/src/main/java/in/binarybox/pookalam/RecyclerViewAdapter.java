@@ -1,7 +1,6 @@
 package in.binarybox.pookalam;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +15,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-import in.binarybox.pookalam.photo.ViewPagerActivity;
+import in.binarybox.pookalam.photo.PhotosViewPagerActivity;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<String> thumbnailUrls = new ArrayList<>();
@@ -51,7 +50,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         myViewHolder.ivThumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(activity, ViewPagerActivity.class);
+                Intent intent=new Intent(activity, PhotosViewPagerActivity.class);
 //                intent.putExtra("thumbnailUrl",thumbnailUrls.get(i));
 
                 intent.putStringArrayListExtra("thumbnailUrls", (ArrayList<String>) thumbnailUrls);

@@ -20,14 +20,14 @@ import in.binarybox.pookalam.R;
  * Created by jithuraj on 1/23/2018.
  */
 
-public class ViewPagerAdapter extends PagerAdapter {
+public class PhotosViewPagerAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater inflater;
     private List<String> thumbnailUrls = new ArrayList<>();
     private String photoUrl;
 
-    public ViewPagerAdapter(Context context, List<String> thumbnailUrls) {
+    public PhotosViewPagerAdapter(Context context, List<String> thumbnailUrls) {
         this.context = context;
         this.thumbnailUrls = thumbnailUrls;
     }

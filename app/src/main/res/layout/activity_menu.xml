@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/activity_bg_gradient"
+    tools:context=".menu.MenuActivity">
+
+
+
+    <ImageView
+        android:id="@+id/ivPookalam"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/icon_pookalam_with_text"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPookalam">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/layout1"
+            android:layout_width="@dimen/menu_item_bg_size"
+            android:layout_height="@dimen/menu_item_bg_size"
+            android:layout_margin="8dp"
+            android:background="@drawable/menu_item_bg1"
+            app:layout_constraintBottom_toTopOf="@id/layout3"
+            app:layout_constraintRight_toLeftOf="@id/layout2">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="@dimen/menu_item_icon_size"
+                android:layout_height="@dimen/menu_item_icon_size"
+                android:background="@drawable/menu_icon_photos"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sniglet"
+                android:text="PHOTOS"
+                android:layout_marginTop="3dp"
+                android:textColor="#fff"
+                app:layout_constraintEnd_toEndOf="@+id/imageView1"
+                app:layout_constraintStart_toStartOf="@+id/imageView1"
+                app:layout_constraintTop_toBottomOf="@+id/imageView1" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/layout2"
+            android:layout_width="@dimen/menu_item_bg_size"
+            android:layout_height="@dimen/menu_item_bg_size"
+            android:layout_margin="8dp"
+            android:background="@drawable/menu_item_bg2"
+            app:layout_constraintBottom_toTopOf="@id/layout4"
+            app:layout_constraintLeft_toRightOf="@id/layout1">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="@dimen/menu_item_icon_size"
+                android:layout_height="@dimen/menu_item_icon_size"
+                android:background="@drawable/menu_icon_sort"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sniglet"
+                android:text="SORT"
+                android:layout_marginTop="3dp"
+                android:textColor="#fff"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/layout3"
+            android:layout_width="@dimen/menu_item_bg_size"
+            android:layout_height="@dimen/menu_item_bg_size"
+            android:layout_margin="8dp"
+            android:background="@drawable/menu_item_bg3"
+            app:layout_constraintRight_toLeftOf="@id/layout4"
+            app:layout_constraintTop_toBottomOf="@id/layout1">
+
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="@dimen/menu_item_icon_size"
+                android:layout_height="@dimen/menu_item_icon_size"
+                android:background="@drawable/menu_icon_share"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sniglet"
+                android:text="SHARE"
+                android:layout_marginTop="3dp"
+                android:textColor="#fff"
+                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintStart_toStartOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/layout4"
+            android:layout_width="@dimen/menu_item_bg_size"
+            android:layout_height="@dimen/menu_item_bg_size"
+            android:layout_margin="8dp"
+            android:background="@drawable/menu_item_bg4"
+            app:layout_constraintLeft_toRightOf="@id/layout3"
+            app:layout_constraintTop_toBottomOf="@id/layout2">
+
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="@dimen/menu_item_icon_size"
+                android:layout_height="@dimen/menu_item_icon_size"
+                android:background="@drawable/menu_icon_more"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sniglet"
+                android:text="MORE"
+                android:layout_marginTop="3dp"
+                android:textColor="#fff"
+                app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                app:layout_constraintStart_toStartOf="@+id/imageView4"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

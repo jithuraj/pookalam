@@ -3,4 +3,6 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="menu_item_bg_gradient_from_color">#ff575d</color>
+    <color name="menu_item_bg_gradient_to_color">#ff569e</color>
 </resources>

@@ -41,9 +41,9 @@ import java.util.List;
 import in.binarybox.pookalam.R;
 
 
-public class ViewPagerActivity extends AppCompatActivity {
+public class PhotosViewPagerActivity extends AppCompatActivity {
     private ViewPager viewPager;
-    private ViewPagerAdapter adapter;
+    private PhotosViewPagerAdapter adapter;
     private List<String> thumbnailUrls = new ArrayList<>();
     private int position;
     private ImageView btnShare, btnDownload, btnWhatsapp;
@@ -69,7 +69,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         position = getIntent().getExtras().getInt("position");
 
 
-        adapter = new ViewPagerAdapter(this, thumbnailUrls);
+        adapter = new PhotosViewPagerAdapter(this, thumbnailUrls);
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(position);
 
