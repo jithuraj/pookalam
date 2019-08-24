@@ -5,4 +5,24 @@
     <color name="colorAccent">#D81B60</color>
     <color name="menu_item_bg_gradient_from_color">#ff575d</color>
     <color name="menu_item_bg_gradient_to_color">#ff569e</color>
+
+
+    <!--random colors for texts activity cardview background-->
+
+
+    <color name="bg_color_1">#45E8F7</color>
+    <color name="bg_color_2">#FF5093</color>
+    <color name="bg_color_3">#1976D2</color>
+    <color name="bg_color_4">#CC66F8</color>
+    <color name="bg_color_5">#689F38</color>
+    <color name="bg_color_6">#F57C00</color>
+    <color name="bg_color_7">#9B70FF</color>
+    <color name="bg_color_8">#388E3C</color>
+    <color name="bg_color_9">#FF7485</color>
+    <color name="bg_color_10">#FBC02D</color>
+    <color name="bg_color_11">#303F9F</color>
+    <color name="bg_color_12">#00796B</color>
+    <color name="bg_color_13">#0097A7</color>
+    <color name="bg_color_14">#AFB42B</color>
+
 </resources>

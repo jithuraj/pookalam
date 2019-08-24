@@ -1,7 +1,7 @@
-package in.binarybox.pookalam.photo;
+package in.binarybox.pookalam.photo.viewPager;
 
 import android.content.Context;
-import android.support.v4.view.PagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +26,7 @@ public class PhotosViewPagerAdapter extends PagerAdapter {
     private LayoutInflater inflater;
     private List<String> thumbnailUrls = new ArrayList<>();
     private String photoUrl;
+
 
     public PhotosViewPagerAdapter(Context context, List<String> thumbnailUrls) {
         this.context = context;
