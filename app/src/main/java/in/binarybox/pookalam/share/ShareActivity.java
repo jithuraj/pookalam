@@ -18,7 +18,7 @@ import in.binarybox.pookalam.R;
 
 public class ShareActivity extends AppCompatActivity {
     private ImageView btnMessenger,btnWhatsapp,btnShare,btnCopy;
-    private TextView tvInstatus,tvVersion;
+    private TextView tvPookalam,tvVersion;
     private Animation anim1,anim2,anim3,anim4,animR1,animR2,animR3,animR4;
     private int animationDuration=500,animationOffsetDuration=300;
 
@@ -136,9 +136,9 @@ public class ShareActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Take a look at \"inStatus : malayalam status videos, photos, texts\"\n" +
+                intent.putExtra(Intent.EXTRA_TEXT, "Take a look at \"Pookalam: Onam pookalam designs and models\"\n" +
                         "\n" +
-                        "https://play.google.com/store/apps/details?id=in.binarybox.instatus");
+                        "https://play.google.com/store/apps/details?id=in.binarybox.pookalam");
 
 
                 try {
@@ -167,9 +167,9 @@ public class ShareActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Take a look at \"inStatus : malayalam status videos, photos, texts\"\n" +
+                intent.putExtra(Intent.EXTRA_TEXT, "Take a look at \"Pookalam: Onam pookalam designs and models\"\n" +
                         "\n" +
-                        "https://play.google.com/store/apps/details?id=in.binarybox.instatus");
+                        "https://play.google.com/store/apps/details?id=in.binarybox.pookalam");
                 try {
 
                     intent.setPackage("com.whatsapp");
@@ -187,9 +187,9 @@ public class ShareActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Take a look at \"inStatus : malayalam status videos, photos, texts\"\n" +
+                intent.putExtra(Intent.EXTRA_TEXT, "Take a look at \"Pookalam: Onam pookalam designs and models\"\n" +
                         "\n" +
-                        "https://play.google.com/store/apps/details?id=in.binarybox.instatus");
+                        "https://play.google.com/store/apps/details?id=in.binarybox.pookalam");
                 startActivity(Intent.createChooser(intent, "share via"));
 
             }
@@ -200,9 +200,9 @@ public class ShareActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clipData = ClipData.newPlainText("","Take a look at \"inStatus : malayalam status videos, photos, texts\"\n" +
+                ClipData clipData = ClipData.newPlainText("","Take a look at \"Pookalam: Onam pookalam designs and models\"\n" +
                         "\n" +
-                        "https://play.google.com/store/apps/details?id=in.binarybox.instatus" );
+                        "https://play.google.com/store/apps/details?id=in.binarybox.pookalam" );
                 clipboardManager.setPrimaryClip(clipData);
 
                 Toast.makeText(ShareActivity.this, "Copied to clipboard.", Toast.LENGTH_SHORT).show();
@@ -211,7 +211,7 @@ public class ShareActivity extends AppCompatActivity {
         });
 
 
-        tvInstatus.setOnClickListener(new View.OnClickListener() {
+        tvPookalam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ShareActivity.super.onBackPressed();
@@ -225,7 +225,7 @@ public class ShareActivity extends AppCompatActivity {
         btnWhatsapp=findViewById(R.id.btnWhatsapp);
         btnShare=findViewById(R.id.btnShare);
         btnCopy=findViewById(R.id.btnCopy);
-        tvInstatus=findViewById(R.id.tvInstatus);
+        tvPookalam=findViewById(R.id.tvPookalam);
         tvVersion=findViewById(R.id.tvVersion);
     }
 

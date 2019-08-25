@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/billabong"
-                android:text="share InStatus"
+                android:text="share Pookalam app"
                 android:textColor="#C779D0"
                 android:textSize="35sp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView"
@@ -190,12 +190,12 @@
         android:layout_marginLeft="8dp">
 
         <TextView
-            android:id="@+id/tvInstatus"
+            android:id="@+id/tvPookalam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/billabong"
-            android:text=" InStatus"
+            android:text=" Pookalam"
             android:textColor="#fff"
             android:textSize="36sp"
             tools:ignore="MissingConstraints" />
