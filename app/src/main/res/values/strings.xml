@@ -6,6 +6,10 @@
 
     <!--test ad unit id-->
     <string name="interstitialAdUnitId">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="about_text1"><u>About</u></string>
+    <string name="about_text2"><u>Developer</u></string>
+    <string name="about_text3"><u>OpenSource libraries</u></string>
+    <string name="about_text4"><u>icons</u></string>
 
     <!--todo change ad unit id from test id to admob id-->
 
