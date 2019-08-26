@@ -28,8 +28,8 @@ public class MenuActivity extends AppCompatActivity {
     private ImageView ivSoundSwitch;
     private String SHARED_PREFS_ID = "bg_music";
     private String SHARED_PREFS_KEY = "is_on";
-    private SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS_ID,MODE_PRIVATE);;
-    private SharedPreferences.Editor editor= getSharedPreferences(SHARED_PREFS_ID,MODE_PRIVATE).edit();
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,11 +91,13 @@ public class MenuActivity extends AppCompatActivity {
                     ivSoundSwitch.setBackgroundResource(R.drawable.menu_icon_sound_off);
                     soundOn=false;
                     editor.putBoolean(SHARED_PREFS_KEY,soundOn);
+                    editor.apply();
                 }else {
                     mediaPlayer.start();
                     ivSoundSwitch.setBackgroundResource(R.drawable.menu_icon_sound_on);
                     soundOn=true;
                     editor.putBoolean(SHARED_PREFS_KEY,soundOn);
+                    editor.apply();
                 }
             }
         });
@@ -104,12 +106,17 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void getSoundModeFn() {
+
+        sharedPreferences=getSharedPreferences(SHARED_PREFS_ID,MODE_PRIVATE);
+        editor= getSharedPreferences(SHARED_PREFS_ID,MODE_PRIVATE).edit();
+
         soundOn=sharedPreferences.getBoolean(SHARED_PREFS_KEY,true);
 
         if (soundOn){
             mediaPlayer.start();
+            ivSoundSwitch.setBackgroundResource(R.drawable.menu_icon_sound_on);
         }else {
-            
+            ivSoundSwitch.setBackgroundResource(R.drawable.menu_icon_sound_off);
         }
     }
 
