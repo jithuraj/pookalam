@@ -127,4 +127,28 @@ public class MenuActivity extends AppCompatActivity {
         AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 5, 0);
     }
+
+    @Override
+    protected void onPause() {
+
+        if (mediaPlayer.isPlaying()){
+            mediaPlayer.pause();
+        }else {
+
+        }
+
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+
+        if (soundOn){
+            mediaPlayer.start();
+        }else {
+            mediaPlayer.pause();
+        }
+
+        super.onResume();
+    }
 }
