@@ -48,8 +48,7 @@
             ads:layout_constraintHorizontal_bias="0.5"
             ads:layout_constraintStart_toStartOf="parent"
             ads:layout_constraintTop_toTopOf="parent"
-            ads:layout_constraintVertical_chainStyle="packed"
-            app:srcCompat="@drawable/icon_no_internet_connection" />
+            ads:layout_constraintVertical_chainStyle="packed"/>
 
         <TextView
             android:id="@+id/textView7"

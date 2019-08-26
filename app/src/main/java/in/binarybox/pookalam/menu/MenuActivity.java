@@ -15,6 +15,18 @@ import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import in.binarybox.pookalam.BuildConfig;
+import in.binarybox.pookalam.message_from_server.MessageFromServerActivity;
 import in.binarybox.pookalam.photo.recyclerView.PhotosRecyclerViewActivity;
 import in.binarybox.pookalam.R;
 import in.binarybox.pookalam.about.AboutActivity;
@@ -31,17 +43,20 @@ public class MenuActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
+
+    private int mode, latestVersion;
+    private String appInstallPackgaName, heading, description;
+    private Boolean mandatoryUpdate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        layout1=findViewById(R.id.layout1);
-        layout2=findViewById(R.id.layout2);
-        layout3=findViewById(R.id.layout3);
-        layout4=findViewById(R.id.layout4);
-        btnSound=findViewById(R.id.soundLayout);
-        ivSoundSwitch=findViewById(R.id.ivSoundSwitch);
+
+        setIdsToViewsFn();
+
+        checkForNewMessageFromServerFn();
 
         setupBgMusicFn();
         
@@ -102,6 +117,17 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
+    private void setIdsToViewsFn() {
+
+        layout1=findViewById(R.id.layout1);
+        layout2=findViewById(R.id.layout2);
+        layout3=findViewById(R.id.layout3);
+        layout4=findViewById(R.id.layout4);
+        btnSound=findViewById(R.id.soundLayout);
+        ivSoundSwitch=findViewById(R.id.ivSoundSwitch);
+
+    }
+
     private void getSoundModeFn() {
 
         sharedPreferences=getSharedPreferences(SHARED_PREFS_ID,MODE_PRIVATE);
@@ -147,5 +173,70 @@ public class MenuActivity extends AppCompatActivity {
         }
 
         super.onResume();
+    }
+
+
+    private void checkForNewMessageFromServerFn() {
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET
+                , "https://binarybox.in/apps/pookalam/json_files/message/message_data.json"
+                , new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+
+                    //get data from server
+                    JSONObject object = new JSONObject(response);
+                    mode = object.getInt("mode");
+                    latestVersion = object.getInt("latest_version");
+                    appInstallPackgaName = object.getString("app_install_package_name");
+                    mandatoryUpdate = object.getBoolean("mandatory_update");
+                    heading = object.getString("heading");
+                    description = object.getString("description");
+
+
+                    if (mode == 0) {
+                        //do nothing
+                    } else if (mode == 1) {
+
+                        if (latestVersion > BuildConfig.VERSION_CODE) {
+                            startMessageActivityFn();
+                        } else {
+                            //this is the latest version
+                        }
+
+                    } else {
+                        startMessageActivityFn();
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+                , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }
+        );
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+    private void startMessageActivityFn() {
+
+        Intent intent = new Intent(MenuActivity.this, MessageFromServerActivity.class);
+        intent.putExtra("mode", mode);
+        intent.putExtra("latest_version", latestVersion);
+        intent.putExtra("app_install_package_name", appInstallPackgaName);
+        intent.putExtra("mandatory_update", mandatoryUpdate);
+        intent.putExtra("heading", heading);
+        intent.putExtra("description", description);
+        startActivity(intent);
+
     }
 }

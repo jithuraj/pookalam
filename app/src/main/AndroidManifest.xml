@@ -16,6 +16,7 @@
         <activity android:name=".photo.sort.SortPhotosActivity"></activity>
         <activity android:name=".share.ShareActivity" />
         <activity android:name=".about.AboutActivity" />
+        <activity android:name=".message_from_server.MessageFromServerActivity" />
         <activity android:name=".photo.recyclerView.PhotosRecyclerViewActivity" />
         <activity android:name=".photo.viewPager.PhotosViewPagerActivity" />
         <activity android:name=".menu.MenuActivity">
