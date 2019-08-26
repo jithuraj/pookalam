@@ -61,9 +61,6 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Toast.makeText(MenuActivity.this, "Coming soon...", Toast.LENGTH_SHORT).show();
-
-//                Intent intent= new Intent(getApplicationContext(), SortPhotosActivity.class);
-//                startActivity(intent);
             }
         });
         layout3.setOnClickListener(new View.OnClickListener() {
