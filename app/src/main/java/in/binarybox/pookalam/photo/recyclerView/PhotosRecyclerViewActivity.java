@@ -21,6 +21,7 @@ import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,6 +40,7 @@ public class PhotosRecyclerViewActivity extends AppCompatActivity {
     private String URL_DATA = "https://binarybox.in/apps/pookalam/php/get_data.php";
     private String THUMBNAIL_PATH ="https://binarybox.in/apps/pookalam/photos/thumbnails/";
     private int width;
+    private AVLoadingIndicatorView loadingIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class PhotosRecyclerViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView=findViewById(R.id.recyclerView);
+        loadingIndicator=findViewById(R.id.loadingIndicator);
 
         //get device screen width
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -99,6 +102,7 @@ public class PhotosRecyclerViewActivity extends AppCompatActivity {
                         thumbnailNames.add(jsonArray.getString(i));
                     }
 
+                    loadingIndicator.setVisibility(View.GONE);
                     thumbnailNameToUrlFn();
 
 

@@ -40,8 +40,8 @@ public class MenuActivity extends AppCompatActivity {
     private ImageView ivSoundSwitch;
     private String SHARED_PREFS_ID = "bg_music";
     private String SHARED_PREFS_KEY = "is_on";
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
+//    private SharedPreferences sharedPreferences;
+//    private SharedPreferences.Editor editor;
 
 
     private int mode, latestVersion;
@@ -58,9 +58,9 @@ public class MenuActivity extends AppCompatActivity {
 
         checkForNewMessageFromServerFn();
 
-        setupBgMusicFn();
+//        setupBgMusicFn();
         
-        getSoundModeFn();
+//        getSoundModeFn();
 
 
         layout1.setOnClickListener(new View.OnClickListener() {
@@ -95,24 +95,24 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        btnSound.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (soundOn){
-                    mediaPlayer.pause();
-                    ivSoundSwitch.setBackgroundResource(R.drawable.menu_icon_sound_off);
-                    soundOn=false;
-                    editor.putBoolean(SHARED_PREFS_KEY,soundOn);
-                    editor.apply();
-                }else {
-                    mediaPlayer.start();
-                    ivSoundSwitch.setBackgroundResource(R.drawable.menu_icon_sound_on);
-                    soundOn=true;
-                    editor.putBoolean(SHARED_PREFS_KEY,soundOn);
-                    editor.apply();
-                }
-            }
-        });
+//        btnSound.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (soundOn){
+//                    mediaPlayer.pause();
+//                    ivSoundSwitch.setBackgroundResource(R.drawable.menu_icon_sound_off);
+//                    soundOn=false;
+//                    editor.putBoolean(SHARED_PREFS_KEY,soundOn);
+//                    editor.apply();
+//                }else {
+//                    mediaPlayer.start();
+//                    ivSoundSwitch.setBackgroundResource(R.drawable.menu_icon_sound_on);
+//                    soundOn=true;
+//                    editor.putBoolean(SHARED_PREFS_KEY,soundOn);
+//                    editor.apply();
+//                }
+//            }
+//        });
 
 
     }
@@ -123,57 +123,57 @@ public class MenuActivity extends AppCompatActivity {
         layout2=findViewById(R.id.layout2);
         layout3=findViewById(R.id.layout3);
         layout4=findViewById(R.id.layout4);
-        btnSound=findViewById(R.id.soundLayout);
-        ivSoundSwitch=findViewById(R.id.ivSoundSwitch);
+//        btnSound=findViewById(R.id.soundLayout);
+//        ivSoundSwitch=findViewById(R.id.ivSoundSwitch);
 
     }
 
-    private void getSoundModeFn() {
+//    private void getSoundModeFn() {
+//
+//        sharedPreferences=getSharedPreferences(SHARED_PREFS_ID,MODE_PRIVATE);
+//        editor= getSharedPreferences(SHARED_PREFS_ID,MODE_PRIVATE).edit();
+//
+//        soundOn=sharedPreferences.getBoolean(SHARED_PREFS_KEY,true);
+//
+//        if (soundOn){
+//            mediaPlayer.start();
+//            ivSoundSwitch.setBackgroundResource(R.drawable.menu_icon_sound_on);
+//        }else {
+//            ivSoundSwitch.setBackgroundResource(R.drawable.menu_icon_sound_off);
+//        }
+//    }
 
-        sharedPreferences=getSharedPreferences(SHARED_PREFS_ID,MODE_PRIVATE);
-        editor= getSharedPreferences(SHARED_PREFS_ID,MODE_PRIVATE).edit();
+//    private void setupBgMusicFn() {
+//        mediaPlayer = MediaPlayer.create(this,R.raw.bg_music);
+//        mediaPlayer.setLooping(true);
+//
+//        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+//        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 5, 0);
+//    }
 
-        soundOn=sharedPreferences.getBoolean(SHARED_PREFS_KEY,true);
+//    @Override
+//    protected void onPause() {
+//
+//        if (mediaPlayer.isPlaying()){
+//            mediaPlayer.pause();
+//        }else {
+//
+//        }
+//
+//        super.onPause();
+//    }
 
-        if (soundOn){
-            mediaPlayer.start();
-            ivSoundSwitch.setBackgroundResource(R.drawable.menu_icon_sound_on);
-        }else {
-            ivSoundSwitch.setBackgroundResource(R.drawable.menu_icon_sound_off);
-        }
-    }
-
-    private void setupBgMusicFn() {
-        mediaPlayer = MediaPlayer.create(this,R.raw.bg_music);
-        mediaPlayer.setLooping(true);
-
-        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 5, 0);
-    }
-
-    @Override
-    protected void onPause() {
-
-        if (mediaPlayer.isPlaying()){
-            mediaPlayer.pause();
-        }else {
-
-        }
-
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-
-        if (soundOn){
-            mediaPlayer.start();
-        }else {
-            mediaPlayer.pause();
-        }
-
-        super.onResume();
-    }
+//    @Override
+//    protected void onResume() {
+//
+//        if (soundOn){
+//            mediaPlayer.start();
+//        }else {
+//            mediaPlayer.pause();
+//        }
+//
+//        super.onResume();
+//    }
 
 
     private void checkForNewMessageFromServerFn() {

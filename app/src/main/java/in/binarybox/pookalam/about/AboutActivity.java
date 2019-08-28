@@ -1,11 +1,15 @@
 package in.binarybox.pookalam.about;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +28,7 @@ public class AboutActivity extends AppCompatActivity {
     private ImageView btnSend;
     private DatabaseReference mDatabase;
     private TextView tvInstatus,tvVersion;
+    private TextView btnDisclaimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +106,15 @@ public class AboutActivity extends AppCompatActivity {
                 AboutActivity.super.onBackPressed();
             }
         });
+
+        btnDisclaimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(AboutActivity.this, "Some of the images shown in this app are collected from various sources over the internet and we do not express any Ownership of these images. If you are the owner or any copyright issues, please mail us on apps.binarybox@gmail.com", Toast.LENGTH_LONG).show();
+
+            }
+        });
     }
 
     private void setIdsToViewsFn() {
@@ -116,6 +130,7 @@ public class AboutActivity extends AppCompatActivity {
         tvInstatus=findViewById(R.id.tvInstatus);
         tvVersion=findViewById(R.id.tvVersion);
         btnDexter=findViewById(R.id.btnDexter);
+        btnDisclaimer=findViewById(R.id.btnDisclaimer);
     }
 
     private void startIntent() {
