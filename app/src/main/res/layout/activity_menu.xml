@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/floralie"
         android:text="pookalam"
-        android:textColor="#faaca8"
+        android:textColor="@color/menu_item_bg_gradient_to_color"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -136,7 +136,8 @@ public class ShareActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Take a look at \"Pookalam: Onam pookalam designs and models\"\n" +
+                intent.putExtra(Intent.EXTRA_TEXT, "ഒരു പൂക്കളത്തിനു ഒരുനൂറ് സൈറ്റ് നോക്കുന്ന കാലം കഴിഞ്ഞു... \n" +
+                        "ഒരു app 500 ഇൽ പരം ഡിസൈൻ & its TOTALLY FREE " +
                         "\n" +
                         "https://play.google.com/store/apps/details?id=in.binarybox.pookalam");
 
@@ -167,7 +168,8 @@ public class ShareActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Take a look at \"Pookalam: Onam pookalam designs and models\"\n" +
+                intent.putExtra(Intent.EXTRA_TEXT, "ഒരു പൂക്കളത്തിനു ഒരുനൂറ് സൈറ്റ് നോക്കുന്ന കാലം കഴിഞ്ഞു... \n" +
+                        "ഒരു app 500 ഇൽ പരം ഡിസൈൻ & *its* *TOTALLY* *FREE* " +
                         "\n" +
                         "https://play.google.com/store/apps/details?id=in.binarybox.pookalam");
                 try {
@@ -187,7 +189,8 @@ public class ShareActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Take a look at \"Pookalam: Onam pookalam designs and models\"\n" +
+                intent.putExtra(Intent.EXTRA_TEXT, "ഒരു പൂക്കളത്തിനു ഒരുനൂറ് സൈറ്റ് നോക്കുന്ന കാലം കഴിഞ്ഞു... \n" +
+                        "ഒരു app 500 ഇൽ പരം ഡിസൈൻ & its TOTALLY FREE " +
                         "\n" +
                         "https://play.google.com/store/apps/details?id=in.binarybox.pookalam");
                 startActivity(Intent.createChooser(intent, "share via"));
@@ -200,7 +203,8 @@ public class ShareActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clipData = ClipData.newPlainText("","Take a look at \"Pookalam: Onam pookalam designs and models\"\n" +
+                ClipData clipData = ClipData.newPlainText("","ഒരു പൂക്കളത്തിനു ഒരുനൂറ് സൈറ്റ് നോക്കുന്ന കാലം കഴിഞ്ഞു... \n" +
+                        "ഒരു app 500 ഇൽ പരം ഡിസൈൻ & its TOTALLY FREE " +
                         "\n" +
                         "https://play.google.com/store/apps/details?id=in.binarybox.pookalam" );
                 clipboardManager.setPrimaryClip(clipData);

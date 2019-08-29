@@ -35,11 +35,11 @@ import in.binarybox.pookalam.share.ShareActivity;
 
 public class MenuActivity extends AppCompatActivity {
     private ConstraintLayout layout1,layout2,layout3,layout4,btnSound;
-    private Boolean soundOn=true;
-    private MediaPlayer mediaPlayer;
-    private ImageView ivSoundSwitch;
-    private String SHARED_PREFS_ID = "bg_music";
-    private String SHARED_PREFS_KEY = "is_on";
+//    private Boolean soundOn=true;
+//    private MediaPlayer mediaPlayer;
+//    private ImageView ivSoundSwitch;
+//    private String SHARED_PREFS_ID = "bg_music";
+//    private String SHARED_PREFS_KEY = "is_on";
 //    private SharedPreferences sharedPreferences;
 //    private SharedPreferences.Editor editor;
 
@@ -75,7 +75,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(MenuActivity.this, "Coming soon...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuActivity.this, "Be quite. We will reach you soon.... This option is under construction", Toast.LENGTH_SHORT).show();
             }
         });
         layout3.setOnClickListener(new View.OnClickListener() {
@@ -219,6 +219,7 @@ public class MenuActivity extends AppCompatActivity {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+
 
             }
         }
