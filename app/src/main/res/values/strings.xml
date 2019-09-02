@@ -2,10 +2,11 @@
     <string name="app_name">Pookalam</string>
 
     <!--real ad unit id-->
-    <!--<string name="interstitialAdUnitId">ca-app-pub-8854035386065547/7322198504</string>-->
+        <string name="interstitialAdUnitId">ca-app-pub-8854035386065547/7322198504</string>
 
     <!--test ad unit id-->
-    <string name="interstitialAdUnitId">ca-app-pub-3940256099942544/1033173712</string>
+<!--    <string name="interstitialAdUnitId">ca-app-pub-3940256099942544/1033173712</string>-->
+
     <string name="about_text1"><u>About</u></string>
     <string name="about_text2"><u>Developer</u></string>
     <string name="about_text3"><u>OpenSource libraries</u></string>
