@@ -37,8 +37,10 @@ public class PhotosRecyclerViewActivity extends AppCompatActivity {
     private PhotosRecyclerViewAdapter adapter;
     private List<String> thumbnailUrls= new ArrayList<>();
     private List<String> thumbnailNames= new ArrayList<>();
-    private String URL_DATA = "https://binarybox.in/apps/pookalam/php/get_data.php";
-    private String THUMBNAIL_PATH ="https://binarybox.in/apps/pookalam/photos/thumbnails/";
+//    private String URL_DATA = "https://binarybox.in/apps/pookalam/php/get_data.php";
+    private String URL_DATA = "https://jithuraj.in/binarybox.in/apps/pookalam/php/get_data.php";
+//    private String THUMBNAIL_PATH ="https://binarybox.in/apps/pookalam/photos/thumbnails/";
+    private String THUMBNAIL_PATH ="https://jithuraj.in/binarybox.in/apps/pookalam/photos/thumbnails/";
     private int width;
     private AVLoadingIndicatorView loadingIndicator;
 

@@ -75,7 +75,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(MenuActivity.this, "Be quite. We will reach you soon.... This option is under construction", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuActivity.this, "Coming soon...", Toast.LENGTH_SHORT).show();
             }
         });
         layout3.setOnClickListener(new View.OnClickListener() {
